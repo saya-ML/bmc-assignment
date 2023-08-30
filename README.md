@@ -15,8 +15,10 @@ http://localhost:8080/passenger
 Histogram
 http://localhost:8080/histogram
 
+
 Docker Environment:
-      SOURCE: "CSV" or "sqlite3"
-      CSV_FILE: "/app/data/titanic.csv"
-      SQL_FILE: "/app/data/passengers.db"
+
+      - SOURCE:   "CSV" or "sqlite3"
+      - CSV_FILE: "/app/data/titanic.csv"
+      - SQL_FILE: "/app/data/passengers.db"
 
