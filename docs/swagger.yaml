@@ -1,0 +1,83 @@
+basePath: /
+definitions:
+  database.Passenger:
+    properties:
+      age:
+        type: string
+      cabin:
+        type: string
+      embarked:
+        type: string
+      fare:
+        type: number
+      name:
+        type: string
+      parch:
+        type: string
+      passenger_id:
+        type: string
+      pclass:
+        type: string
+      sex:
+        type: string
+      sibSp:
+        type: string
+      survived:
+        type: string
+      ticket:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: BMC Histogram CSV SQLite Docker
+  title: BMC-assignment 2023-08-29
+  version: "1.0"
+paths:
+  /histogram:
+    get:
+      description: Generate a histogram with the fares
+      produces:
+      - image/svg+xml
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: error message
+          schema: {}
+      summary: Get histogram
+  /passenger:
+    get:
+      description: Get all passengers of the database
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/database.Passenger'
+            type: array
+        "400":
+          description: Bad Request
+      summary: Get all passengers
+  /passenger/{id}:
+    get:
+      description: Get a passenger by key and filter fields (optional)
+      parameters:
+      - description: Key of the passenger
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/database.Passenger'
+        "400":
+          description: Bad Request
+      summary: Get a passenger by key
+swagger: "2.0"

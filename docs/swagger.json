@@ -1,0 +1,126 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "BMC Histogram CSV SQLite Docker",
+        "title": "BMC-assignment 2023-08-29",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "paths": {
+        "/histogram": {
+            "get": {
+                "description": "Generate a histogram with the fares",
+                "produces": [
+                    "image/svg+xml"
+                ],
+                "summary": "Get histogram",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "400": {
+                        "description": "error message",
+                        "schema": {}
+                    }
+                }
+            }
+        },
+        "/passenger": {
+            "get": {
+                "description": "Get all passengers of the database",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get all passengers",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/database.Passenger"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/passenger/{id}": {
+            "get": {
+                "description": "Get a passenger by key and filter fields (optional)",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get a passenger by key",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Key of the passenger",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/database.Passenger"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "database.Passenger": {
+            "type": "object",
+            "properties": {
+                "age": {
+                    "type": "string"
+                },
+                "cabin": {
+                    "type": "string"
+                },
+                "embarked": {
+                    "type": "string"
+                },
+                "fare": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "parch": {
+                    "type": "string"
+                },
+                "passenger_id": {
+                    "type": "string"
+                },
+                "pclass": {
+                    "type": "string"
+                },
+                "sex": {
+                    "type": "string"
+                },
+                "sibSp": {
+                    "type": "string"
+                },
+                "survived": {
+                    "type": "string"
+                },
+                "ticket": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

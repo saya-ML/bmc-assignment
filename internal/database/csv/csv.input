@@ -1,0 +1,4 @@
+PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked
+22,1,2,"Beesley, Mr. Lawrence",male,34,0,0,248698,13,D56,S
+25,0,3,"Palsson, Miss. Torborg Danira",female,8,3,1,349909,21.075,,S
+854,1,1,"Lines, Miss. Mary Conover",female,16,0,1,PC 17592,39.4,D28,S

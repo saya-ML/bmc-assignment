@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  bmc-assignment:
+    environment:
+      SOURCE: "CSV"
+      SOURCE_SQLite: "sqlite3"
+      CSV_FILE: "/app/data/titanic.csv"
+      SQL_FILE: "/app/data/passengers.db"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bmc-saya
+    ports:
+      - 8080:8080

@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS passengers (
+	passenger_id TEXT,
+	survived TEXT,
+	pclass TEXT,
+	name TEXT,
+	sex TEXT,
+	age TEXT,
+	sib_sp TEXT,
+	parch TEXT,
+	ticket TEXT,
+	fare REAL,
+	cabin TEXT,
+	embarked TEXT
+);
